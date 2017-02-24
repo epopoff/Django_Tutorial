@@ -1,0 +1,26 @@
+{% extends 'improve/base.html' %}
+
+{% block content %}
+	{% if latest_tickets_list %}
+		<div class="w3-container">
+			<h2>Список предложений</h2>
+			<table class="w3-table w3-bordered">
+				<tr>
+					<td><b>Наименование</b></td>
+					<td><b>Пользователь</b></td>
+					<td><b>Категория</b></td>
+					<td><b>Дата</b></td>
+				</tr>
+
+				{% for ticket in latest_tickets_list %}
+					<tr>
+						<td>{{ ticket.title }}</td>
+						<td>{{ ticket.user }}</td>
+						<td>{{ ticket.category }}</td>
+						<td>{{ ticket.created_date }}</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	{% endif %}
+{% endblock content %}
