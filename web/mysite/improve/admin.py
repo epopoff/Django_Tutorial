@@ -3,5 +3,10 @@ from .models import Category, Ticket
 # Register your models here.
 
 
-admin.site.register(Category)
-admin.site.register(Ticket)
+class TicketAdmin(admin.ModelAdmin):
+    list_display = ('title', 'user', 'category', 'created_date')
+    list_filter = ['user', 'category', 'created_date']
+    search_fields = ['title', 'text']
+
+
+admin.site.register(Ticket, TicketAdmin)

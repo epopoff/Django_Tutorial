@@ -18,3 +18,8 @@ class TicketList(generic.ListView):
 
     def get_queryset(self):
         return Ticket.objects.order_by('-created_date')[:10]
+
+
+class DetailView(generic.DetailView):
+    model = Ticket
+    template_name = 'improve/detail.html'
